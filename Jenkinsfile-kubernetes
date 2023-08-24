@@ -69,7 +69,7 @@ spec:
     stage('Update K8s Manifests & Push') {
       environment {
         githubUser = 'mj' //Ryan Jang
-        githubEmail = 'minjii923@example.com' //c1t1d0s7@example.com
+        githubEmail = 'asert2993@gmail.com' //c1t1d0s7@example.com
         githubId = 'minjii923' //c1t1d0s7 
         githubRepo = 'test-myweb-kube' //jenkins-kube-deploy
         githubURL = "https://github.com/${githubId}/${githubRepo}.git"
