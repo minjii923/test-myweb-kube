@@ -41,7 +41,7 @@ spec:
     stage('Checkout') {
       steps {
         container('maven') {
-          git branch: 'main', url: 'minjii923/test-myweb-kube'
+          git branch: 'main', url: 'https://github.com/minjii923/test-maven-java-spring-hello-webapp.git'
         }
       }
     }
@@ -62,7 +62,7 @@ spec:
     stage('Build & Tag & Push Docker Image') {
       steps {
         container('kaniko') {
-          sh 'executor --context=dir:///home/jenkins/agent/workspace/kube_pipeline/ --destination=kbmj0/myweb:$BUILD_NUMBER --destination=kbmj0/myweb:latest'
+          sh 'executor --context=dir://$WORKSPACE --destination=kbmj0/myweb:$BUILD_NUMBER --destination=kbmj0/myweb:latest'
         }
       }
     }
@@ -71,7 +71,7 @@ spec:
         githubUser = 'mj' //Ryan Jang
         githubEmail = 'minjii923@example.com' //c1t1d0s7@example.com
         githubId = 'minjii923' //c1t1d0s7 
-        githubRepo = 'jenkins-kube-deploy' //jenkins-kube-deploy
+        githubRepo = 'test-myweb-kube' //jenkins-kube-deploy
         githubURL = "https://github.com/${githubId}/${githubRepo}.git"
         dockerhubId = 'kbmj0' //c1t1d0s7
         dockerhubRepo = 'myweb' //hello-world
